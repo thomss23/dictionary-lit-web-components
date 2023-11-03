@@ -2,3 +2,8 @@
 custom-elements.json
 # only generated for size check
 my-element.bundled.js
+*.sketch
+*.fig
+*.xd
+.DS_Store
+.prettierignore
