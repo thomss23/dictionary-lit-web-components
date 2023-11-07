@@ -22,6 +22,7 @@ Lit 2.x and 3.0 are _interoperable_: templates, base classes, directives, decora
 
 Please file any issues you find on our [issue tracker](https://github.com/lit/lit/issues).
 
+
 ## Setup
 
 Install dependencies:
