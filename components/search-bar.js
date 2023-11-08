@@ -3,44 +3,58 @@ import {LitElement, html, css} from 'lit';
 export class SearchBar extends LitElement {
     static get styles() {
       return css`
-        :host {
-            width: 100%;
-        }
-
         .container {
-            display: flex;
-            justify-content: center;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 600px;
+          height: 45px;
+          text-align: center;
+          position: relative;
         }
 
         input {
-            height: 36px;
-            width: 50%;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          font-size: 20px;
+          padding: 5px 5px 5px 5px;
+          border: none;
+          background-color: #F4F4F4;          
+        }
 
-            border: 1px solid #CDCDCD;
-            border-radius: 10px;
-            background-color: #F4F4F4;
+        input:focus{
+          outline: none;
         }
 
         img {
-            width: 20px;
-            height: 20px;
-            margin-right: 90x; /* Adjust margin as needed */
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          position: absolute;
+          top:16px;
+          right: 5px;
+          transition: transform 0.2s;
         }
-        /* .container {
-            display:flex;
-            justify-content: center;
+
+        img:hover {
+          transform: scale(1.2);
         }
+
+
+      @media (max-width: 650px) {
+        .container {
+          width: 400px;
+          margin: 0 auto;
+          max-width: 500px;
+          height: 45px;
+          text-align: center;
+          position: relative;
+        }
+
         input {
-            width: 50%;
-            height: 36px;
-            border: 1px solid #CDCDCD;
-            border-radius: 10px;
-            background-color: #F4F4F4;
+          font-size: 14px; 
         }
-
-        img {
-            padding-right: 20px;
-        } */
+      }
       `;
     }
   
