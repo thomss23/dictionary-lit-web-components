@@ -10,7 +10,10 @@ export class Content extends LitElement {
                 display:flex;
                 justify-content: space-between;
             }
-
+            
+            img {
+                cursor: pointer;
+            }
         `
     }
 
@@ -28,6 +31,7 @@ export class Content extends LitElement {
                 </div>
                 <img src='/assets/images/icon-play.svg'/>
             </div>
+            <img src='/assets/images/icon-played.svg'/>
 
             <!-- TODO: make it dynamic based on API data -->
             <word-definition></word-definition>
