@@ -1,6 +1,9 @@
 import {LitElement, html, css} from 'lit';
 
-export class SearchBar extends LitElement {
+import './content'
+import './footer'
+
+export class MainContent extends LitElement {
     static get styles() {
       return css`
         .container {
@@ -8,8 +11,7 @@ export class SearchBar extends LitElement {
           width: 100%;
           max-width: 600px;
           height: 45px;
-          text-align: center;
-          position: relative;
+          position:relative;
         }
 
         input {
@@ -73,6 +75,8 @@ export class SearchBar extends LitElement {
         <div class="container">
             <input type="text">
             <img src='/assets/images/icon-search.svg'/>
+            <content-element></content-element>
+            <footer-element></footer-element>
         </div>
       `;
     }
@@ -80,5 +84,5 @@ export class SearchBar extends LitElement {
   
 }
   
-window.customElements.define('search-bar', SearchBar);
+window.customElements.define('main-content', MainContent);
   

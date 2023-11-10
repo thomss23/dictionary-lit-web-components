@@ -1,27 +1,8 @@
-import {LitElement, html, css} from 'lit';
+import {LitElement, html} from 'lit';
 
-import './components/search-bar'
+import './components/main-content'
 
 export class AppContainer extends LitElement {
-  static get styles() {
-    return css`
-      .container {
-        /* display: flex;
-        justify-content: center;
-        height: 100vh;  */
-        /* flex-direction: column; */
-      }
-
-      
-    `;
-  }
-
-  // static get properties() {
-  //   return {
-  //     name: {type: String},
-  //     count: {type: Number},
-  //   };
-  // }
 
   constructor() {
     super();
@@ -29,8 +10,7 @@ export class AppContainer extends LitElement {
 
   render() {
     return html`
-      <search-bar></search-bar>
-
+      <main-content></main-content>
     `;
   }
 }
