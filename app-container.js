@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit';
 
-import './components/main-content'
+import './components/main-element'
 
 export class AppContainer extends LitElement {
 
@@ -10,7 +10,7 @@ export class AppContainer extends LitElement {
 
   render() {
     return html`
-      <main-content></main-content>
+      <main-element></main-element>
     `;
   }
 }

@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit';
 
-export class WordDefinition extends LitElement {
+export class Definition extends LitElement {
 
     static get styles() {
         return css`
@@ -22,6 +22,10 @@ export class WordDefinition extends LitElement {
             li {
                 padding: 5px;
             }
+
+            p {
+                margin: 0;
+            }
         `
     }
 
@@ -31,21 +35,21 @@ export class WordDefinition extends LitElement {
         <div class="type-container">
                 <div class="word-type">noun</div>
                 <div class="separator"></div>
-            </div>
+        </div>
 
-            <p>Meaning</p>
+        <p>Meaning</p>
 
-            <ul>
-                <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
-                <li>A component of many instruments including the piano, organ, and harpsichord consisting 
-                    of usually black and white keys that cause different tones to be produced when struck.
-                </li>
-                <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices 
-                    which may be built into or separate from the keyboard device.
-                </li>
-            </ul>
+        <ul>
+            <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
+            <li>A component of many instruments including the piano, organ, and harpsichord consisting 
+                of usually black and white keys that cause different tones to be produced when struck.
+            </li>
+            <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices 
+                which may be built into or separate from the keyboard device.
+            </li>
+        </ul>
         `
     }
 }
 
-window.customElements.define('word-definition', WordDefinition);
+window.customElements.define('definition-element', Definition);

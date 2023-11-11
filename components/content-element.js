@@ -1,12 +1,13 @@
 import {LitElement, html, css} from 'lit';
 
-import './word-definition'
+import './definition-element'
 
 export class Content extends LitElement {
 
     static get styles() {
         return css`
             .content-container {
+                width:100%;
                 display:flex;
                 justify-content: space-between;
             }
@@ -31,11 +32,9 @@ export class Content extends LitElement {
                 </div>
                 <img src='/assets/images/icon-play.svg'/>
             </div>
-            <img src='/assets/images/icon-played.svg'/>
-
             <!-- TODO: make it dynamic based on API data -->
-            <word-definition></word-definition>
-            <word-definition></word-definition>
+            <definition-element></definition-element>
+            <definition-element></definition-element>
         `;
     }
 

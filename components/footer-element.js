@@ -6,7 +6,6 @@ export class Footer extends LitElement {
 
     static get styles() {
         return css`
-
             .separator {
                 /* needs to be adjusted depending on the final font size of the word type */
                 margin-top: 13px; 
