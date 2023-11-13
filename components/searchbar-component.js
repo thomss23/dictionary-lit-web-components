@@ -38,11 +38,33 @@ export class SearchBar extends LitElement {
         `
     }
 
+    static properties() {
+        searchTerm = {type : String};
+    }
+
+
+    constructor() {
+        super();
+        this.searchTerm = '';
+    }
+
+    _handleClick() {
+        this.dispatchEvent(new CustomEvent('search', {detail: this.searchTerm}));
+    }
+
+    _handleInputChange(event) {
+        this.searchTerm = event.target.value;
+    }
+
 
     render() {
         return html`
-            <input type="text">
-            <img src='/assets/images/icon-search.svg'/>
+            <input
+             .value= ${this.searchTerm}
+             @input=${this._handleInputChange}
+             type="text"
+             >
+            <img @click=${this._handleClick} src='/assets/images/icon-search.svg'/>
         `
     }
 
