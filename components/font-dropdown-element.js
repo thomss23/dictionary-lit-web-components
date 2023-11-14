@@ -1,4 +1,3 @@
-// font-dropdown-element.js
 import { LitElement, html, css } from 'lit';
 
 export class FontDropdown extends LitElement {

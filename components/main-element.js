@@ -4,6 +4,7 @@ import './content-element'
 import './footer-element'
 import './searchbar-component'
 import './header-element'
+import './error-element'
 
 export class Main extends LitElement {
     static get styles() {
@@ -28,14 +29,14 @@ export class Main extends LitElement {
       `;
     }
 
-    static properties() {
-      definitions : {type: Object; state: true}
-      error: {type: Object; state: true}
-    }
+    static properties = {
+      data : {type: Object},
+      error: {type: Object}
+    };
   
     constructor() {
       super();
-      this.definitions = null;
+      this.data = null;
       this.error = null;
     }
 
@@ -44,16 +45,13 @@ export class Main extends LitElement {
 
       try {
         const fetchedData = await this.fetchDictionaryInfo(searchedTerm);
-        this.definitions = fetchedData;
+        this.data = fetchedData;
         this.error = null;
       } catch (error) {
-        console.error('Error fetching data:', error);
-        this.definitions = null; 
-        this.error = error; 
+        this.data = null; 
+        this.error = error.details; 
       }
-      // Manually trigger a render
-      //TODO: THIS NEEDS TO BE FIXED SOMEHOW, SHOULD RELY ON LIT'S REACTIVE PROPERTIES
-      this.requestUpdate();
+      
     }
   
     async fetchDictionaryInfo(searchedTerm) {
@@ -65,21 +63,20 @@ export class Main extends LitElement {
         throw { status: response.status, message: 'HTTP error', details: errorBody };
       }
 
-      return await response.json(); 
+      return response.json(); 
     }
     
     
     render() {
       if (this.error) {
-        // Show an error message
         return html`
           <div class="container">
             <header-element></header-element>
             <searchbar-component @search=${this.handleSearch}></searchbar-component>
-            <p>Encountered an error</p>
+            <error-element .error=${this.error}></error-element>
           </div>
         `;
-      } else if (!this.definitions) {
+      } else if (!this.data) {
         return html`
           <div class="container">
             <header-element></header-element>
@@ -91,7 +88,7 @@ export class Main extends LitElement {
           <div class="container">
             <header-element></header-element>
             <searchbar-component @search=${this.handleSearch}></searchbar-component>
-            <content-element .definitions=${this.definitions}></content-element>
+            <content-element .data=${this.data}></content-element>
             <footer-element></footer-element>
           </div>
         `;

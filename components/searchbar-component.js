@@ -1,5 +1,7 @@
 import {LitElement, html, css} from 'lit';
 
+import './header-element';
+
 export class SearchBar extends LitElement {
 
     static get styles() {
@@ -37,11 +39,9 @@ export class SearchBar extends LitElement {
             }
         `
     }
-
-    static properties() {
-        searchTerm = {type : String};
-    }
-
+    static properties = {
+        searchTerm : {type: String},
+      };
 
     constructor() {
         super();
@@ -63,7 +63,7 @@ export class SearchBar extends LitElement {
              .value= ${this.searchTerm}
              @input=${this._handleInputChange}
              type="text"
-             >
+            >
             <img @click=${this._handleClick} src='/assets/images/icon-search.svg'/>
         `
     }
