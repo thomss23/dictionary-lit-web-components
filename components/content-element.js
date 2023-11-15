@@ -46,14 +46,34 @@ export class Content extends LitElement {
 
     }
 
+    _playPhonetic() {
+        const audio = this.shadowRoot.getElementById("myAudio");
+        const image = this.shadowRoot.querySelector('img');
+
+        //TODO: try to do this somehow using a state variable
+        audio.addEventListener('playing', () => {
+            image.src = '/assets/images/icon-played.svg';
+        });
+      
+        audio.addEventListener('ended', () => {
+            image.src = '/assets/images/icon-play.svg';
+        });
+
+        console.log(audio.src)
+        if (audio.paused) {
+            audio.play()
+
+        } else {
+            audio.paused();
+        }
+
+
+    }
 
     render() {
         const dataWithMostMeanings = this._retrieveResultWithMostMeaningsFromData(this.data);
-        //TODO:this doesn't work correctly, need to fix
-        const audioData = this.data.map((element) => element.phonetics).find((phonetic) => phonetic.audio != '');
-        
-        console.log(this.data);
-        console.log(audioData);
+        const allPhonetics = this.data.flatMap(element => element.phonetics);
+        const audioData = allPhonetics.find(phonetic => phonetic.audio !== '');        
 
         return html`
             <div class="content-container">
@@ -61,9 +81,8 @@ export class Content extends LitElement {
                     <h1>${dataWithMostMeanings.word}</h1>
                     <p>${dataWithMostMeanings.phonetic}</p>
                 </div>
-            <!-- TODO: Check this later to make the image play an audio 
-            https://stackoverflow.com/questions/47754451/html-how-to-play-and-pause-audio-when-clicking-an-image -->
-                ${audioData ? html`<img src='/assets/images/icon-play.svg'/>` : ''}
+                ${audioData ? html`<img @click=${this._playPhonetic} src='/assets/images/icon-play.svg'/><audio src=${audioData.audio} id="myAudio"></audio>
+` : ''}
             </div>
 
             ${repeat(
