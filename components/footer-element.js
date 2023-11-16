@@ -4,6 +4,15 @@ import {LitElement, html, css} from 'lit';
 
 export class Footer extends LitElement {
 
+    static properties = {
+        sourceURL : {type: String}
+    }
+
+    constructor() {
+        super();
+        this.url = '';
+    }
+
     static get styles() {
         return css`
             .separator {
@@ -25,7 +34,7 @@ export class Footer extends LitElement {
         return html`
             <div>
                 <div class="separator"></div>
-                <p>Source: <a href="www.google.com">https://www.google.com/</a></p>
+                <p>Source: <a href=${this.sourceURL}>${this.sourceURL}</a></p>
             </div>
 
         `

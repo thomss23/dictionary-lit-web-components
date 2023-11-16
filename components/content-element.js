@@ -84,7 +84,6 @@ export class Content extends LitElement {
                 ${audioData ? html`<img @click=${this._playPhonetic} src='/assets/images/icon-play.svg'/><audio src=${audioData.audio} id="myAudio"></audio>
 ` : ''}
             </div>
-
             ${repeat(
                     dataWithMostMeanings.meanings,
                     (element) => element.partOfSpeach,
@@ -92,6 +91,9 @@ export class Content extends LitElement {
                     <definition-element .meaning=${element}></definition-element>
                 `
             )}
+
+            <footer-element .sourceURL=${dataWithMostMeanings.sourceUrls[0]}></footer-element>
+
         `;
     }
 

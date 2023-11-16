@@ -49,8 +49,15 @@ export class SearchBar extends LitElement {
     }
 
     _handleClick() {
-        this.dispatchEvent(new CustomEvent('search', {detail: this.searchTerm}));
+        this.dispatchEvent(new CustomEvent('searchClick', {detail: this.searchTerm}));
     }
+
+    _handleKeyDown(event) {
+        if (event.key === 'Enter') {
+          this.dispatchEvent(new CustomEvent('pressed', { detail: this.searchTerm }));
+        }
+    }
+    
 
     _handleInputChange(event) {
         this.searchTerm = event.target.value;
@@ -62,6 +69,7 @@ export class SearchBar extends LitElement {
             <input
              .value= ${this.searchTerm}
              @input=${this._handleInputChange}
+             @keydown=${this._handleKeyDown}
              type="text"
             >
             <img @click=${this._handleClick} src='/assets/images/icon-search.svg'/>

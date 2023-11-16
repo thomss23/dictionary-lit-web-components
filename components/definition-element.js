@@ -2,7 +2,19 @@ import {LitElement, html, css} from 'lit';
 
 export class Definition extends LitElement {
 
+
+    static properties = {
+        meaning: {type: Object}
+    }
+
+    constructor() {
+        super();
+        this.meaning = null;
+    }
+
     static get styles() {
+
+
         return css`
             .type-container {
                 display: flex;
@@ -30,23 +42,21 @@ export class Definition extends LitElement {
     }
 
     render() {
+
+        console.log(this.meaning);
         return html`
 
         <div class="type-container">
-                <div class="word-type">noun</div>
+                <div class="word-type">${this.meaning.partOfSpeech}</div>
                 <div class="separator"></div>
         </div>
 
         <p>Meaning</p>
 
         <ul>
-            <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
-            <li>A component of many instruments including the piano, organ, and harpsichord consisting 
-                of usually black and white keys that cause different tones to be produced when struck.
-            </li>
-            <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices 
-                which may be built into or separate from the keyboard device.
-            </li>
+            ${this.meaning.definitions.map((key) =>
+                html`<li>${key.definition}</li>`
+            )}
         </ul>
         `
     }

@@ -53,6 +53,7 @@ export class Main extends LitElement {
       }
       
     }
+    
   
     async fetchDictionaryInfo(searchedTerm) {
       const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + searchedTerm;
@@ -65,31 +66,33 @@ export class Main extends LitElement {
 
       return response.json(); 
     }
-    
+
+    async handleEnter(event) {
+      await this.handleSearch(event);
+    }
     
     render() {
       if (this.error) {
         return html`
           <div class="container">
             <header-element></header-element>
-            <searchbar-component @search=${this.handleSearch}></searchbar-component>
+            <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
             <error-element .error=${this.error}></error-element>
           </div>
         `;
-      } else if (!this.data) {
-        return html`
+      } else if (this.data) {
+          return html`
           <div class="container">
             <header-element></header-element>
-            <searchbar-component @search=${this.handleSearch}></searchbar-component>
+            <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
+            <content-element .data=${this.data}></content-element>
           </div>
         `;
       } else {
         return html`
           <div class="container">
             <header-element></header-element>
-            <searchbar-component @search=${this.handleSearch}></searchbar-component>
-            <content-element .data=${this.data}></content-element>
-            <footer-element></footer-element>
+            <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
           </div>
         `;
       }
