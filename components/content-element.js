@@ -59,15 +59,12 @@ export class Content extends LitElement {
             image.src = '/assets/images/icon-play.svg';
         });
 
-        console.log(audio.src)
         if (audio.paused) {
             audio.play()
 
         } else {
             audio.paused();
         }
-
-
     }
 
     render() {

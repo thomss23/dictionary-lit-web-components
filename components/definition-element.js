@@ -42,22 +42,18 @@ export class Definition extends LitElement {
     }
 
     render() {
-
-        console.log(this.meaning);
         return html`
+            <div class="type-container">
+                    <div class="word-type">${this.meaning.partOfSpeech}</div>
+                    <div class="separator"></div>
+            </div>
+             <p>Meaning</p>
 
-        <div class="type-container">
-                <div class="word-type">${this.meaning.partOfSpeech}</div>
-                <div class="separator"></div>
-        </div>
-
-        <p>Meaning</p>
-
-        <ul>
-            ${this.meaning.definitions.map((key) =>
-                html`<li>${key.definition}</li>`
-            )}
-        </ul>
+            <ul>
+                ${this.meaning.definitions.map((key) =>
+                    html`<li>${key.definition}</li>`
+                )}
+            </ul>
         `
     }
 }
