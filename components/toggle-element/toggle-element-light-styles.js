@@ -3,11 +3,11 @@ import { css } from 'lit';
 export default css`
    /* The switch - the box around the slider */
    .switch {
-            position: relative;
-            display: inline-block;
-            right: 10px;
-            width: 45px;
-            height: 20px;
+        position: relative;
+        display: inline-block;
+        right: 10px;
+        width: 45px;
+        height: 20px;
     }
 
     /* Hide default HTML checkbox */

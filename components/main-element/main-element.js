@@ -16,7 +16,8 @@ export class Main extends LitElement {
 
   static properties = {
     data : {type: Object},
-    error: {type: Object}
+    error: {type: Object}, 
+    fontType : {type: String}
   };
 
   constructor() {
@@ -60,7 +61,7 @@ export class Main extends LitElement {
     if (this.error) {
       return html`
         <div class="container">
-          <header-element></header-element>
+          <header-element .fontType = ${this.fontType}></header-element>
           <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
           <error-element .error=${this.error}></error-element>
         </div>
@@ -68,7 +69,7 @@ export class Main extends LitElement {
     } else if (this.data) {
         return html`
         <div class="container">
-          <header-element></header-element>
+          <header-element .fontType = ${this.fontType}></header-element>
           <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
           <content-element .data=${this.data}></content-element>
         </div>
@@ -76,7 +77,7 @@ export class Main extends LitElement {
     } else {
       return html`
         <div class="container">
-          <header-element></header-element>
+          <header-element .fontType = ${this.fontType}></header-element>
           <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
         </div>
       `;

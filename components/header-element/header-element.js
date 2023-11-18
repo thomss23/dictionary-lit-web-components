@@ -4,32 +4,28 @@ import '../toggle-element/toggle-element'
 import '../font-dropdown-element/font-dropdown-element';
 import headerStyles from './header-element-light-styles';
 
+
 export class Header extends LitElement {
 
     static styles = [
         headerStyles,
     ]
 
-    static get properties() {
-        return {
-            isDropdownVisible: { type: Boolean },
-            fontype: {type: String},
-        };
+    static properties =  {
+        isDropdownVisible: { type: Boolean },
+        fontType: {type: String},
     }
 
     constructor() {
         super();
         this.isDropdownVisible = false;
-        this.fontType = "Sans Serif";
     }
 
     toggleDropdown() {
         this.isDropdownVisible = !this.isDropdownVisible;
     }
 
-    handleFontSelected(event) {
-        const selectedFont = event.detail;
-        this.fontType = selectedFont;
+    handleFontSelected() {
         this.isDropdownVisible = false; 
     }
 

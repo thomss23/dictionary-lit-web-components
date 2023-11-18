@@ -19,7 +19,12 @@ export class FontDropdown extends LitElement {
     }
 
     selectFont(font) {
-        this.dispatchEvent(new CustomEvent('font-selected', { detail: font }));
+        this.dispatchEvent(new CustomEvent('font-selected', { detail: font, 
+        composed: true,
+        bubbling: true
+        }
+        
+        ));
     }
 }
 

@@ -2,10 +2,6 @@ import { css } from 'lit';
 
 export default css`
 
-    :host {
-        font-family: mono-custom;
-    }
-
     .header-container {
         display: flex;
         justify-content: space-between;
