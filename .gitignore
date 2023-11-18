@@ -7,3 +7,4 @@ my-element.bundled.js
 *.xd
 .DS_Store
 .prettierignore
+*.ignore
