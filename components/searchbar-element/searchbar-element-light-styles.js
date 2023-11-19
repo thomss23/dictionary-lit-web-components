@@ -12,6 +12,7 @@ export default css`
         background-color: #F4F4F4;
         margin-bottom: 25px;  
         padding: 20px;
+        font-family: inherit;
     }
 
     input:focus{

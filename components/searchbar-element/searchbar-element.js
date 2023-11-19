@@ -53,6 +53,7 @@ export class SearchBar extends LitElement {
         return html`
             <input
              .value= ${this.searchTerm}
+             placeholder="Search for any word..."
              @input=${this._handleInputChange}
              @keydown=${this._handleKeyDown}
              type="text"

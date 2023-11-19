@@ -7,6 +7,7 @@ import '../header-element/header-element'
 import '../error-element/error-element'
 
 import mainStyles from './main-element-light-styles'
+import { fetchDictionaryInfo } from '../../service/fetchDefinitions';
 
 export class Main extends LitElement {
 
@@ -30,7 +31,7 @@ export class Main extends LitElement {
     const searchedTerm = event.detail;
 
     try {
-      const fetchedData = await this.fetchDictionaryInfo(searchedTerm);
+      const fetchedData = await fetchDictionaryInfo(searchedTerm);
       this.data = fetchedData;
       this.error = null;
     } catch (error) {
@@ -40,19 +41,6 @@ export class Main extends LitElement {
     
   }
   
-
-  async fetchDictionaryInfo(searchedTerm) {
-    const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + searchedTerm;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      const errorBody = await response.json();
-      throw { status: response.status, message: 'HTTP error', details: errorBody };
-    }
-
-    return response.json(); 
-  }
-
   async handleEnter(event) {
     await this.handleSearch(event);
   }
