@@ -7,7 +7,7 @@ import '../header-element/header-element'
 import '../error-element/error-element'
 
 import mainStyles from './main-element-light-styles'
-import { fetchDictionaryInfo } from '../../service/fetchDefinitions';
+import { fetchDictionaryInfo } from '../../service/fetchDefinitionsService';
 
 export class Main extends LitElement {
 

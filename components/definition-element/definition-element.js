@@ -4,7 +4,6 @@ import definitionStyles from './definition-element-light-styles'
 
 export class Definition extends LitElement {
 
-
     static properties = {
         meaning: {type: Object}
     }
@@ -19,6 +18,7 @@ export class Definition extends LitElement {
     ]
 
     render() {
+        console.log(this.meaning)
         return html`
             <div class="type-container">
                     <div class="word-type">${this.meaning.partOfSpeech}</div>
@@ -28,9 +28,40 @@ export class Definition extends LitElement {
 
             <ul>
                 ${this.meaning.definitions.map((key) =>
-                    html`<li>${key.definition}</li>`
+                    html`
+                    <li>${key.definition}</li>
+                    ${key.example ? html`<p>"${key.example}"</p>` : ''}
+                    `
                 )}
-            </ul>
+            </ul>   
+            
+            ${this.meaning.synonyms.length > 0 
+                ?
+                 html`
+                    <div>
+                        <p>Synonyms</p>
+                        ${this.meaning.synonyms.map(synonym => {
+                            return html`<p>${synonym}</p>`
+                        })}
+                    </div>
+                 `
+                :
+                ''
+            }
+
+            ${this.meaning.antonyms.length > 0 
+                ?
+                 html`
+                    <div>
+                        <p>Antonyms</p>
+                        ${this.meaning.synonyms.map(antonym => {
+                            return html`<p>${antonym}</p>`
+                        })}
+                    </div>
+                 `
+                :
+                ''
+            }
         `
     }
 }
