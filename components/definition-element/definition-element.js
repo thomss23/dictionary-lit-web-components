@@ -18,57 +18,62 @@ export class Definition extends LitElement {
     ]
 
     render() {
-        console.log(this.meaning)
-        return html`
-            <div class="type-container">
-                    <div class="word-type">${this.meaning.partOfSpeech}</div>
-                    <div class="separator"></div>
-            </div>
-            <p id="meaning">Meaning</p>
-            <ul>
-                ${this.meaning.definitions.map((key) =>
-                    html`
-                    <li>${key.definition}</li>
-                    ${key.example ? html`<p class="example">"${key.example}"</p>` : ''}
-                    `
-                )}
-            </ul>   
 
-            ${this.meaning.synonyms.length > 0 
-                ?
-                html`
-                <div class="main-container">
-                    <p>Synonyms</p>
-                    <div class="alternatives-container">
-                        ${this.meaning.synonyms.map((synonym, key) => {
-                            if (key < 4)
-                            return html`<p class="alternative">${synonym}</p>`
-                        })}
-                    </div>
+        return html`
+
+            <div class="definition-container">
+
+                <div class="type-container">
+                        <div class="word-type">${this.meaning.partOfSpeech}</div>
+                        <div class="separator"></div>
                 </div>
-                `
-                :
-                ''
-            }
-        
-            ${this.meaning.antonyms.length > 0 
-                ?
-                html`
+                <p id="meaning">Meaning</p>
+                <ul>
+                    ${this.meaning.definitions.map((key) =>
+                        html`
+                        <li>${key.definition}</li>
+                        ${key.example ? html`<p class="example">"${key.example}"</p>` : ''}
+                        `
+                    )}
+                </ul>   
+
+                ${this.meaning.synonyms.length > 0 
+                    ?
+                    html`
                     <div class="main-container">
-                        <p>Antonyms</p>
+                        <p>Synonyms</p>
                         <div class="alternatives-container">
-                            ${this.meaning.antonyms.map((antonym, key) => {
+                            ${this.meaning.synonyms.map((synonym, key) => {
                                 if (key < 4)
-                                return html`<p class="alternative">${antonym}</p>`
+                                return html`<p class="alternative">${synonym}</p>`
                             })}
                         </div>
                     </div>
+                    `
+                    :
+                    ''
+                }
+            
+                ${this.meaning.antonyms.length > 0 
+                    ?
+                    html`
+                        <div class="main-container">
+                            <p>Antonyms</p>
+                            <div class="alternatives-container">
+                                ${this.meaning.antonyms.map((antonym, key) => {
+                                    if (key < 4)
+                                    return html`<p class="alternative">${antonym}</p>`
+                                })}
+                            </div>
+                        </div>
 
-                `
-                :
-                ''
-            }
+                    `
+                    :
+                    ''
+                }
 
+
+            </div>
 
         `
     }

@@ -21,6 +21,8 @@ export default css`
 
     .font-text {
         margin-right: 10px;
+        font-size: 18px;
+        font-weight: bold;
     }
 
     .arrow {

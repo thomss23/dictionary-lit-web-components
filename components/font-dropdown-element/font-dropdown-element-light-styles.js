@@ -23,4 +23,9 @@ export default css`
     .option:hover {
         color: #A445ED;
     }
+
+    div {
+        font-weight: bold;
+        font-size: 18px;
+    }
 `

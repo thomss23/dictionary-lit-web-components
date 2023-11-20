@@ -10,10 +10,13 @@ export default css`
 
     .footer-container {
         margin-top: 15px;
+        padding-bottom: 35px;
+        font-size: 14px;
     }
     
     a {
         text-decoration: none;
         color: grey;
+        text-decoration: underline;
     }
 `

@@ -10,7 +10,7 @@ export default css`
         border: none;
         padding: 5px 5px 5px 5px;
         background-color: #F4F4F4;
-        margin-bottom: 25px;  
+        margin-bottom: 5px;  
         padding: 20px;
         font-family: inherit;
         font-weight: bold;

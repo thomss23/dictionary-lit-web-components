@@ -13,11 +13,14 @@ export default css`
 
     h1 {
         margin-bottom: 5px;
+        font-size: 64px;
+        font-weight: bold;
     }
 
     #phonetic {
         margin-top: 0px;
         color: #8f19e8;
+        font-size: 24px;
     }
 
 `
