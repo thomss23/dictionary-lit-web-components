@@ -24,44 +24,52 @@ export class Definition extends LitElement {
                     <div class="word-type">${this.meaning.partOfSpeech}</div>
                     <div class="separator"></div>
             </div>
-             <p>Meaning</p>
-
+            <p id="meaning">Meaning</p>
             <ul>
                 ${this.meaning.definitions.map((key) =>
                     html`
                     <li>${key.definition}</li>
-                    ${key.example ? html`<p>"${key.example}"</p>` : ''}
+                    ${key.example ? html`<p class="example">"${key.example}"</p>` : ''}
                     `
                 )}
             </ul>   
-            
+
             ${this.meaning.synonyms.length > 0 
                 ?
-                 html`
-                    <div>
-                        <p>Synonyms</p>
-                        ${this.meaning.synonyms.map(synonym => {
-                            return html`<p>${synonym}</p>`
+                html`
+                <div class="main-container">
+                    <p>Synonyms</p>
+                    <div class="alternatives-container">
+                        ${this.meaning.synonyms.map((synonym, key) => {
+                            if (key < 4)
+                            return html`<p class="alternative">${synonym}</p>`
                         })}
                     </div>
-                 `
+                </div>
+                `
+                :
+                ''
+            }
+        
+            ${this.meaning.antonyms.length > 0 
+                ?
+                html`
+                    <div class="main-container">
+                        <p>Antonyms</p>
+                        <div class="alternatives-container">
+                            ${this.meaning.antonyms.map((antonym, key) => {
+                                if (key < 4)
+                                return html`<p class="alternative">${antonym}</p>`
+                            })}
+                        </div>
+                    </div>
+
+                `
                 :
                 ''
             }
 
-            ${this.meaning.antonyms.length > 0 
-                ?
-                 html`
-                    <div>
-                        <p>Antonyms</p>
-                        ${this.meaning.synonyms.map(antonym => {
-                            return html`<p>${antonym}</p>`
-                        })}
-                    </div>
-                 `
-                :
-                ''
-            }
+
         `
     }
 }

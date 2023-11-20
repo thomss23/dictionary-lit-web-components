@@ -67,7 +67,7 @@ export class Content extends LitElement {
             <div class="content-container">
                 <div>
                     <h1>${dataWithMostMeanings.word}</h1>
-                    <p>${dataWithMostMeanings.phonetic}</p>
+                    <p id="phonetic">${dataWithMostMeanings.phonetic}</p>
                 </div>
                 ${audioData ? html`<img @click=${this._playPhonetic} src='/assets/images/icon-play.svg'/><audio src=${audioData.audio} id="myAudio"></audio>
 ` : ''}

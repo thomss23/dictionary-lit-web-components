@@ -20,7 +20,31 @@ export default css`
         padding: 5px;
     }
 
-    p {
-        margin: 0;
+    .example {
+        color: #757575;
+        margin: 4px;
+    }
+
+    .alternatives-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+    .alternative {
+        width: 100%;
+        white-space: nowrap;
+        color: #8f19e8;
+        font-weight: bold;
+    }
+
+    .main-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 25px;
+        margin-top:10px;
+    }
+
+    #meaning {
+        color: #757575;
     }
 `

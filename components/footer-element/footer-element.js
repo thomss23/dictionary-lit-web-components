@@ -19,7 +19,7 @@ export class Footer extends LitElement {
 
     render() {
         return html`
-            <div>
+            <div class="footer-container">
                 <div class="separator"></div>
                 <p>Source: <a href=${this.sourceURL}>${this.sourceURL}</a></p>
             </div>

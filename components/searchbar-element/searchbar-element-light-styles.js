@@ -13,6 +13,7 @@ export default css`
         margin-bottom: 25px;  
         padding: 20px;
         font-family: inherit;
+        font-weight: bold;
     }
 
     input:focus{

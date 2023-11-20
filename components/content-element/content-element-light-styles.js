@@ -11,4 +11,13 @@ export default css`
         cursor: pointer;
     }
 
+    h1 {
+        margin-bottom: 5px;
+    }
+
+    #phonetic {
+        margin-top: 0px;
+        color: #8f19e8;
+    }
+
 `

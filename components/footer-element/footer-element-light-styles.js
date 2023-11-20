@@ -7,6 +7,10 @@ export default css`
         border-top: 1px solid #e2e2e2;
         width: 88%;
     }
+
+    .footer-container {
+        margin-top: 15px;
+    }
     
     a {
         text-decoration: none;
