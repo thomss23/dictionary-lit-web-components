@@ -12,7 +12,7 @@ export default css`
         
     @media (max-width: 650px) {
         .container {
-            width: 400px;
+            width: 350px;
             margin: 0 auto;
             max-width: 500px;
             height: 45px;

@@ -28,4 +28,20 @@ export default css`
         font-weight: bold;
         font-size: 18px;
     }
+
+    @media (max-width: 650px) {
+        .dropdown {
+            border-radius: 10px;
+            box-sizing: border-box; 
+            position: absolute;
+            top: 100%;
+            left: 210px;
+            width: 150px; 
+            background-color: #FFFFFF;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            padding: 10px;
+        }
+    } 
+  
 `
