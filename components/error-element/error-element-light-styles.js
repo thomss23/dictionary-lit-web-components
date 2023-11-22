@@ -9,7 +9,7 @@ export default css`
             text-align: center;
         }
 
-    .emodji {
-        font-size: 45px;
+    .emoji {
+        font-size: 60px;
     }
 `
