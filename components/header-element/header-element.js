@@ -46,15 +46,15 @@ export class Header extends LitElement {
             </style>
 
             <div class="header-container">
-                <img class="logo" src='/assets/images/logo.svg'/> 
+                <img class="logo" src='./assets/images/logo.svg'/> 
 
                 <div class="right">
                     <div class="font-text">${this.fontType}</div>
-                    <img @click="${this.toggleDropdown}" class="arrow" src='/assets/images/icon-arrow-down.svg'/>  
+                    <img @click="${this.toggleDropdown}" class="arrow" src='./assets/images/icon-arrow-down.svg'/>  
                     <div class="separator"></div>
                     <div class="toggle-switch-container">
                         <toggle-switch-element></toggle-switch-element>
-                        <img class="moon" src='/assets/images/icon-moon.svg'/>  
+                        <img class="moon" src='./assets/images/icon-moon.svg'/>  
                     </div>
                     ${this.isDropdownVisible ? html`<font-dropdown-element @font-selected="${this.handleFontSelected}"></font-dropdown-element>` : ''}
                 </div>
