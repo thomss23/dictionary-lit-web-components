@@ -59,7 +59,7 @@ export class SearchBar extends LitElement {
              type="text"
             >
             ${this.isEmptySearchTerm ? html`<div class="error-message" aria-live="assertive">Whoops, can't be empty</div>` : ''}
-            <img @click=${this._handleClick} src='./assets/images/icon-search.svg'/>
+            <img @click=${this._handleClick} src='/assets/images/icon-search.svg'/>
         `
     }
 
