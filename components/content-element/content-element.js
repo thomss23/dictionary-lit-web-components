@@ -43,11 +43,11 @@ export class Content extends LitElement {
 
         //TODO: try to do this somehow using a state variable
         audio.addEventListener('playing', () => {
-            image.src = '/assets/images/icon-played.svg';
+            image.src = './assets/images/icon-played.svg';
         });
       
         audio.addEventListener('ended', () => {
-            image.src = '/assets/images/icon-play.svg';
+            image.src = './assets/images/icon-play.svg';
         });
 
         if (audio.paused) {
@@ -69,7 +69,7 @@ export class Content extends LitElement {
                     <h1>${dataWithMostMeanings.word}</h1>
                     <p id="phonetic">${dataWithMostMeanings.phonetic}</p>
                 </div>
-                ${audioData ? html`<img @click=${this._playPhonetic} src='/assets/images/icon-play.svg'/><audio src=${audioData.audio} id="myAudio"></audio>
+                ${audioData ? html`<img @click=${this._playPhonetic} src='./assets/images/icon-play.svg'/><audio src=${audioData.audio} id="myAudio"></audio>
 ` : ''}
             </div>
             ${repeat(
