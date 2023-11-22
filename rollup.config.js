@@ -2,7 +2,7 @@
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import image from 'rollup-plugin-img'; // Change the import to rollup-plugin-img
+import image from 'rollup-plugin-img';
 import copy from 'rollup-plugin-copy';
 
 export default {
@@ -30,10 +30,11 @@ export default {
         },
       },
     }),
-    image(), // Change this line to use rollup-plugin-img
+    image(),
     copy({
       targets: [
         { src: 'assets/images', dest: 'dist/assets' },
+        { src: 'assets/fonts', dest: 'dist/assets' }, // Copy fonts to dist/assets folder
         // Add other targets if needed
       ],
     }),
