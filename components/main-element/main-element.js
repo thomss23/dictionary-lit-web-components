@@ -18,7 +18,8 @@ export class Main extends LitElement {
   static properties = {
     data : {type: Object},
     error: {type: Object}, 
-    fontType : {type: String}
+    fontType : {type: String},
+    isDarkMode : {type: Boolean}
   };
 
   constructor() {
@@ -46,27 +47,28 @@ export class Main extends LitElement {
   }
   
   render() {
+    console.log("Main" + this.isDarkMode);
     if (this.error) {
       return html`
         <div class="container">
-          <header-element .fontType = ${this.fontType}></header-element>
-          <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
-          <error-element .error=${this.error}></error-element>
+          <header-element .isDarkMode=${this.isDarkMode} .fontType = ${this.fontType}></header-element>
+          <searchbar-component .isDarkMode=${this.isDarkMode} @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
+          <error-element .isDarkMode=${this.isDarkMode} .error=${this.error}></error-element>
         </div>
       `;
     } else if (this.data) {
         return html`
         <div class="container">
-          <header-element .fontType = ${this.fontType}></header-element>
-          <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
-          <content-element .data=${this.data}></content-element>
+          <header-element .isDarkMode=${this.isDarkMode} .fontType = ${this.fontType}></header-element>
+          <searchbar-component .isDarkMode=${this.isDarkMode} @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
+          <content-element .isDarkMode=${this.isDarkMode} .data=${this.data}></content-element>
         </div>
       `;
     } else {
       return html`
         <div class="container">
-          <header-element .fontType = ${this.fontType}></header-element>
-          <searchbar-component @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
+          <header-element .isDarkMode=${this.isDarkMode} .fontType = ${this.fontType}></header-element>
+          <searchbar-component .isDarkMode=${this.isDarkMode} @pressed=${this.handleEnter} @searchClick=${this.handleSearch}></searchbar-component>
         </div>
       `;
     }

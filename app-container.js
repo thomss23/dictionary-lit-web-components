@@ -6,13 +6,31 @@ import './components/main-element/main-element'
 export class AppContainer extends LitElement {
 
   static properties = {
-    fontType : {type: String}
+    fontType : {type: String},
+    isDarkMode : {type: Boolean}
   }
 
   constructor() {
     super();
     this.fontType = 'Sans Serif'
+    this.isDarkMode = false;
     this.addEventListener('font-selected', this.handleSelectedFont);
+    this.addEventListener('toggle-mode', this.handleToggleMode);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener('toggle-mode', this.handleToggleMode);
+  }
+
+  handleToggleMode() { 
+    this.isDarkMode = !this.isDarkMode;
+
+    if (this.isDarkMode) {
+      document.body.style.backgroundColor = 'black';
+    } else {
+      document.body.style.backgroundColor = 'white';
+    }
   }
 
   handleSelectedFont(event) {
@@ -20,13 +38,15 @@ export class AppContainer extends LitElement {
   }
 
   render() {
+    console.log("AppContainer" + this.isDarkMode);
+
     return html`
       <style>
         :host {
           font-family: ${this.fontType.toLowerCase().replace(" ", "-") + "-custom"};
         }
       </style>
-      <main-element .fontType = ${this.fontType}></main-element>
+      <main-element .isDarkMode=${this.isDarkMode} .fontType = ${this.fontType}></main-element>
     `;
   }
 }

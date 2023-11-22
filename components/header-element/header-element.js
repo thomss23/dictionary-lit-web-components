@@ -1,19 +1,27 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 
 import '../toggle-element/toggle-element'
 import '../font-dropdown-element/font-dropdown-element';
-import headerStyles from './header-element-light-styles';
+
+import {commonStyles} from './header-element-common-styles';
+import {lightStyles} from './header-element-light-styles';
+import {darkStyles} from './header-element-dark-styles';
 
 
 export class Header extends LitElement {
 
-    static styles = [
-        headerStyles,
-    ]
+    get styles() {
+        return css`
+            ${commonStyles}
+
+            ${this.isDarkMode ? darkStyles : lightStyles}
+        `;
+    }
 
     static properties =  {
         isDropdownVisible: { type: Boolean },
         fontType: {type: String},
+        isDarkMode: {type:Boolean}
     }
 
     constructor() {
@@ -30,7 +38,14 @@ export class Header extends LitElement {
     }
 
     render() {
+        
+        console.log("Header: " + this.isDarkMode)
         return html`
+
+            <style>
+                ${this.styles}
+            </style>
+
             <div class="header-container">
                 <img class="logo" src='/assets/images/logo.svg'/> 
 

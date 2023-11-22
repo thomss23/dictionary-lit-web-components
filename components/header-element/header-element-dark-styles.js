@@ -1,9 +1,9 @@
 import { css } from 'lit';
 
-export const lightStyles = css`
+export const darkStyles = css`
 
     .font-text {
-        color: black;
+        color: white;
     }
   
 `;
