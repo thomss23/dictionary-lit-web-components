@@ -172,13 +172,13 @@ const lt=2;class ct{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,i)
         font-size: 24px;
     }
 
-`;window.customElements.define("content-element",class extends ht{static styles=[wt];static properties={data:{type:Object}};constructor(){super(),this.data=null}_retrieveResultWithMostMeaningsFromData(t){return t.sort(((t,e)=>{const i=t.meanings.length,s=e.meanings.length;return i<s?1:i>s?-1:0}))[0]}_playPhonetic(){const t=this.shadowRoot.getElementById("myAudio"),e=this.shadowRoot.querySelector("img");t.addEventListener("playing",(()=>{e.src="./assets/images/icon-played.svg"})),t.addEventListener("ended",(()=>{e.src="./assets/images/icon-play.svg"})),t.paused?t.play():t.paused()}render(){const t=this._retrieveResultWithMostMeaningsFromData(this.data),e=this.data.flatMap((t=>t.phonetics)).find((t=>""!==t.audio));return H`
+`;window.customElements.define("content-element",class extends ht{static styles=[wt];static properties={data:{type:Object}};constructor(){super(),this.data=null}_retrieveResultWithMostMeaningsFromData(t){return t.sort(((t,e)=>{const i=t.meanings.length,s=e.meanings.length;return i<s?1:i>s?-1:0}))[0]}_playPhonetic(){const t=this.shadowRoot.getElementById("myAudio"),e=this.shadowRoot.querySelector("img");t.addEventListener("playing",(()=>{e.src="/dist/assets/images/icon-played.svg"})),t.addEventListener("ended",(()=>{e.src="/dist/assets/images/icon-play.svg"})),t.paused?t.play():t.paused()}render(){const t=this._retrieveResultWithMostMeaningsFromData(this.data),e=this.data.flatMap((t=>t.phonetics)).find((t=>""!==t.audio));return H`
             <div class="content-container">
                 <div>
                     <h1>${t.word}</h1>
                     <p id="phonetic">${t.phonetic}</p>
                 </div>
-                ${e?H`<img @click=${this._playPhonetic} src='./assets/images/icon-play.svg'/><audio src=${e.audio} id="myAudio"></audio>
+                ${e?H`<img @click=${this._playPhonetic} src='/dist/assets/images/icon-play.svg'/><audio src=${e.audio} id="myAudio"></audio>
 `:""}
             </div>
             ${xt(t.meanings,(t=>t.partOfSpeach),(t=>H`
@@ -404,15 +404,15 @@ const lt=2;class ct{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,i)
             </style>
 
             <div class="header-container">
-                <img class="logo" src='./assets/images/logo.svg'/> 
+                <img class="logo" src='/dist/assets/images/logo.svg'/> 
 
                 <div class="right">
                     <div class="font-text">${this.fontType}</div>
-                    <img @click="${this.toggleDropdown}" class="arrow" src='./assets/images/icon-arrow-down.svg'/>  
+                    <img @click="${this.toggleDropdown}" class="arrow" src='/dist/assets/images/icon-arrow-down.svg'/>  
                     <div class="separator"></div>
                     <div class="toggle-switch-container">
                         <toggle-switch-element></toggle-switch-element>
-                        <img class="moon" src='./assets/images/icon-moon.svg'/>  
+                        <img class="moon" src='/dist/assets/images/icon-moon.svg'/>  
                     </div>
                     ${this.isDropdownVisible?H`<font-dropdown-element @font-selected="${this.handleFontSelected}"></font-dropdown-element>`:""}
                 </div>
@@ -455,9 +455,8 @@ const lt=2;class ct{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,i)
     .error-message {
         color: #FF5252;
         position: relative;
-        top:-15px; 
     }
-`;class _t extends ht{static styles=[Et];static properties={searchTerm:{type:String},isEmptySearchTerm:{type:Boolean}};constructor(){super(),this.searchTerm="",this.isEmptySearchTerm=!1}_handleClick(){this.searchTerm?(this.dispatchEvent(new CustomEvent("searchClick",{detail:this.searchTerm})),this.isEmptySearchTerm=!1):this.isEmptySearchTerm=!0}_handleKeyDown(t){"Enter"===t.key&&this.searchTerm?(this.dispatchEvent(new CustomEvent("pressed",{detail:this.searchTerm})),this.isEmptySearchTerm=!1):this.searchTerm||(this.isEmptySearchTerm=!0)}_handleInputChange(t){this.searchTerm=t.target.value,this.isEmptySearchTerm&&this.searchTerm&&(this.isEmptySearchTerm=!1)}render(){return H`
+`;class _t extends ht{static styles=[Et];static properties={searchTerm:{type:String},isEmptySearchTerm:{type:Boolean}};constructor(){super(),this.searchTerm="",this.isEmptySearchTerm=!1}_handleClick(){this.searchTerm?(this.dispatchEvent(new CustomEvent("searchClick",{detail:this.searchTerm})),this.isEmptySearchTerm=!1):this.isEmptySearchTerm=!0}_handleKeyDown(t){"Enter"===t.key&&(this.searchTerm?(this.dispatchEvent(new CustomEvent("pressed",{detail:this.searchTerm})),this.isEmptySearchTerm=!1):this.isEmptySearchTerm=!0)}_handleInputChange(t){this.searchTerm=t.target.value,this.isEmptySearchTerm&&this.searchTerm&&(this.isEmptySearchTerm=!1)}render(){return H`
             <input
              .value= ${this.searchTerm}
              placeholder="Search for any word..."
@@ -466,7 +465,7 @@ const lt=2;class ct{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,i)
              type="text"
             >
             ${this.isEmptySearchTerm?H`<div class="error-message" aria-live="assertive">Whoops, can't be empty</div>`:""}
-            <img @click=${this._handleClick} src='./assets/images/icon-search.svg'/>
+            <img @click=${this._handleClick} src='/dist/assets/images/icon-search.svg'/>
         `}}window.customElements.define("searchbar-component",_t);var Tt=r`
     .error-container {
             width:100%;

@@ -31,14 +31,15 @@ export class SearchBar extends LitElement {
     }
 
     _handleKeyDown(event) {
-        if (event.key === 'Enter' && this.searchTerm) {
-            this.dispatchEvent(new CustomEvent('pressed', { detail: this.searchTerm }));
-            this.isEmptySearchTerm = false;
-        } else if (!this.searchTerm) {
-            this.isEmptySearchTerm = true;
+        if (event.key === 'Enter') {
+            if (this.searchTerm) {
+                this.dispatchEvent(new CustomEvent('pressed', { detail: this.searchTerm }));
+                this.isEmptySearchTerm = false;
+            } else {
+                this.isEmptySearchTerm = true;
+            }
         }
     }
-
     _handleInputChange(event) {
         this.searchTerm = event.target.value;
 

@@ -38,6 +38,5 @@ export default css`
     .error-message {
         color: #FF5252;
         position: relative;
-        top:-15px; 
     }
 `;
