@@ -1,18 +1,27 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 
 import '../header-element/header-element';
 
-import searchbarStyles from './searchbar-element-light-styles'
+import {commonStyles} from './searchbar-element-common-styles'
+import {lightStyles} from './searchbar-element-light-styles'
+import {darkStyles} from './searchbar-element-dark-styles'
+
 
 export class SearchBar extends LitElement {
 
-    static styles = [
-        searchbarStyles
-    ]
+
+    get styles() {
+        return css`
+            ${commonStyles}
+
+            ${this.isDarkMode ? darkStyles : lightStyles}
+        `;
+    }
 
     static properties = {
         searchTerm : {type: String},
-        isEmptySearchTerm : {type: Boolean}
+        isEmptySearchTerm : {type: Boolean},
+        isDarkMode : {type: Boolean}
     };
 
     constructor() {
@@ -40,6 +49,7 @@ export class SearchBar extends LitElement {
             }
         }
     }
+
     _handleInputChange(event) {
         this.searchTerm = event.target.value;
 
@@ -52,6 +62,11 @@ export class SearchBar extends LitElement {
 
     render() {
         return html`
+
+            <style>
+                ${this.styles}
+            </style>
+
             <input
              .value= ${this.searchTerm}
              placeholder="Search for any word..."

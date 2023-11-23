@@ -74,4 +74,12 @@ export default css`
         color: #757575;
     }
 
+    @media (max-width: 650px) {
+        .separator {
+            margin-top: 13px;
+            border-top: 1px solid #e2e2e2;
+            width: calc(100% - 42%); 
+        }
+    } 
+
 `

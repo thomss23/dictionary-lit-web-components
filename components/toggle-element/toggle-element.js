@@ -8,7 +8,8 @@ export class ToggleSwitch extends LitElement {
         toggleStyles
     ]
 
-
+    // TODO: need to fix this as searching for a word when in night mode
+    // resets the slider to the initial position
     handleToggle() {
         const event = new CustomEvent('toggle-mode', {
           bubbles: true,

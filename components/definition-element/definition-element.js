@@ -20,14 +20,15 @@ export class Definition extends LitElement {
     render() {
 
         return html`
-
             <div class="definition-container">
 
                 <div class="type-container">
                         <div class="word-type">${this.meaning.partOfSpeech}</div>
                         <div class="separator"></div>
                 </div>
+
                 <p id="meaning">Meaning</p>
+
                 <ul>
                     ${this.meaning.definitions.map((key) =>
                         html`
@@ -41,7 +42,9 @@ export class Definition extends LitElement {
                     ?
                     html`
                     <div class="main-container">
+
                         <p>Synonyms</p>
+
                         <div class="alternatives-container">
                             ${this.meaning.synonyms.map((synonym, key) => {
                                 if (key < 4)
@@ -58,7 +61,9 @@ export class Definition extends LitElement {
                     ?
                     html`
                         <div class="main-container">
+
                             <p>Antonyms</p>
+
                             <div class="alternatives-container">
                                 ${this.meaning.antonyms.map((antonym, key) => {
                                     if (key < 4)
@@ -66,13 +71,10 @@ export class Definition extends LitElement {
                                 })}
                             </div>
                         </div>
-
                     `
                     :
                     ''
                 }
-
-
             </div>
 
         `

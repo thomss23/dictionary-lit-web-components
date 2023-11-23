@@ -27,9 +27,9 @@ export class AppContainer extends LitElement {
     this.isDarkMode = !this.isDarkMode;
 
     if (this.isDarkMode) {
-      document.body.style.backgroundColor = 'black';
+      document.body.style.backgroundColor = '#050505';
     } else {
-      document.body.style.backgroundColor = 'white';
+      document.body.style.backgroundColor = '#FFFFFF';
     }
   }
 
