@@ -13,6 +13,7 @@ export const commonStyles = css`
         padding: 20px;
         font-family: inherit;
         font-weight: 600;
+        cursor: pointer;
     }
 
     input:focus{

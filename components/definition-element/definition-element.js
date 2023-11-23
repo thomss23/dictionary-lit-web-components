@@ -1,11 +1,23 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 
-import definitionStyles from './definition-element-light-styles'
+import {commonStyles} from './definition-element-common-styles'
+import {lightStyles} from './definition-element-light-styles'
+import {darkStyles} from './definition-element-dark-styles'
 
 export class Definition extends LitElement {
 
+    get styles() {
+        return css`
+            ${commonStyles}
+
+            ${this.isDarkMode ? darkStyles : lightStyles}
+        `;
+    }
+
+
     static properties = {
-        meaning: {type: Object}
+        meaning: {type: Object},
+        isDarkMode: {type: Boolean}
     }
 
     constructor() {
@@ -13,13 +25,12 @@ export class Definition extends LitElement {
         this.meaning = null;
     }
 
-    static styles = [
-        definitionStyles
-    ]
-
     render() {
-
         return html`
+            <style>
+                ${this.styles}
+            </style>
+
             <div class="definition-container">
 
                 <div class="type-container">

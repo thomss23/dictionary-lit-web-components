@@ -1,15 +1,23 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 
-import errorStyles from './error-element-light-styles'
+import {commonStyles} from './error-element-common-styles'
+import {lightStyles} from './error-element-light-styles'
+import {darkStyles} from './error-element-dark-styles'
+
 
 export class Error extends LitElement {
 
-    static styles = [
-        errorStyles
-    ]
-    
+    get styles() {
+        return css`
+            ${commonStyles}
+
+            ${this.isDarkMode ? darkStyles : lightStyles}
+        `;
+    }
+
     static properties = {
-        error: {type: Object}
+        error: {type: Object},
+        isDarkMode : {type: Boolean}
     };
 
     constructor() {
@@ -19,6 +27,11 @@ export class Error extends LitElement {
 
     render() {
         return html`
+
+            <style>
+                ${this.styles}
+            </style>
+
             <div class="error-container">
                 <div class="emoji">&#128533;</div>
                 <h1>${this.error.title}</h1>

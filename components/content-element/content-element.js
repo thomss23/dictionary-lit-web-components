@@ -1,20 +1,27 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 import {repeat} from 'lit/directives/repeat.js';
 
 import '../definition-element/definition-element'
 import '../loading-element/loading-element'
 
-import contentStyles from './content-element-light-styles'
+import {commonStyles} from './content-element-common-styles'
+import {lightStyles} from './content-element-light-styles'
+import {darkStyles} from './content-element-dark-styles'
 
 export class Content extends LitElement {
 
-    static styles = [
-        contentStyles
-    ]
+    get styles() {
+        return css`
+            ${commonStyles}
+
+            ${this.isDarkMode ? darkStyles : lightStyles}
+        `;
+    }
 
     static properties = {
         data: {type: Object},
-        isLoading : {type: Boolean}
+        isLoading : {type: Boolean},
+        isDarkMode: {type: Boolean},
     };
 
 
@@ -64,15 +71,18 @@ export class Content extends LitElement {
     render() {
 
         if (this.isLoading) {
-            return html`<loading-element></loading-element>`
+            return html`<style>${this.styles}</style><loading-element></loading-element>`
         }
-
 
         const dataWithMostMeanings = this._retrieveResultWithMostMeaningsFromData(this.data);
         const allPhonetics = this.data.flatMap(element => element.phonetics);
         const audioData = allPhonetics.find(phonetic => phonetic.audio !== '');        
 
         return html`
+            <style>
+                ${this.styles}
+            </style>
+
             <div class="content-container">
                 <div>
                     <h1>${dataWithMostMeanings.word}</h1>
@@ -85,11 +95,11 @@ export class Content extends LitElement {
                     dataWithMostMeanings.meanings,
                     (element) => element.partOfSpeach,
                     (element) => html`
-                    <definition-element .meaning=${element}></definition-element>
+                    <definition-element .isDarkMode=${this.isDarkMode} .meaning=${element}></definition-element>
                 `
             )}
 
-            <footer-element .sourceURL=${dataWithMostMeanings.sourceUrls[0]}></footer-element>
+            <footer-element .isDarkMode=${this.isDarkMode} .sourceURL=${dataWithMostMeanings.sourceUrls[0]}></footer-element>
 
         `;
     }
