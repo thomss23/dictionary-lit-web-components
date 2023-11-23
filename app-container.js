@@ -38,8 +38,6 @@ export class AppContainer extends LitElement {
   }
 
   render() {
-    console.log("AppContainer" + this.isDarkMode);
-
     return html`
       <style>
         :host {

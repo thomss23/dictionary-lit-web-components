@@ -47,7 +47,6 @@ export class Main extends LitElement {
   }
   
   render() {
-    console.log("Main" + this.isDarkMode);
     if (this.error) {
       return html`
         <div class="container">
