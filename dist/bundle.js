@@ -172,13 +172,13 @@ const ct=2;class lt{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,s)
         font-size: 24px;
     }
 
-`;window.customElements.define("content-element",class extends ht{static styles=[wt];static properties={data:{type:Object}};constructor(){super(),this.data=null}_retrieveResultWithMostMeaningsFromData(t){return t.sort(((t,e)=>{const s=t.meanings.length,i=e.meanings.length;return s<i?1:s>i?-1:0}))[0]}_playPhonetic(){const t=this.shadowRoot.getElementById("myAudio"),e=this.shadowRoot.querySelector("img");t.addEventListener("playing",(()=>{e.src="/dist/assets/images/icon-played.svg"})),t.addEventListener("ended",(()=>{e.src="/dist/assets/images/icon-play.svg"})),t.paused?t.play():t.paused()}render(){const t=this._retrieveResultWithMostMeaningsFromData(this.data),e=this.data.flatMap((t=>t.phonetics)).find((t=>""!==t.audio));return H`
+`;window.customElements.define("content-element",class extends ht{static styles=[wt];static properties={data:{type:Object}};constructor(){super(),this.data=null}_retrieveResultWithMostMeaningsFromData(t){return t.sort(((t,e)=>{const s=t.meanings.length,i=e.meanings.length;return s<i?1:s>i?-1:0}))[0]}_playPhonetic(){const t=this.shadowRoot.getElementById("myAudio"),e=this.shadowRoot.querySelector("img");t.addEventListener("playing",(()=>{e.src="./dist/assets/images/icon-played.svg"})),t.addEventListener("ended",(()=>{e.src="./dist/assets/images/icon-play.svg"})),t.paused?t.play():t.paused()}render(){const t=this._retrieveResultWithMostMeaningsFromData(this.data),e=this.data.flatMap((t=>t.phonetics)).find((t=>""!==t.audio));return H`
             <div class="content-container">
                 <div>
                     <h1>${t.word}</h1>
                     <p id="phonetic">${t.phonetic}</p>
                 </div>
-                ${e?H`<img @click=${this._playPhonetic} src='/dist/assets/images/icon-play.svg'/><audio src=${e.audio} id="myAudio"></audio>
+                ${e?H`<img @click=${this._playPhonetic} src='./dist/assets/images/icon-play.svg'/><audio src=${e.audio} id="myAudio"></audio>
 `:""}
             </div>
             ${xt(t.meanings,(t=>t.partOfSpeach),(t=>H`
@@ -404,15 +404,15 @@ const ct=2;class lt{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,s)
             </style>
 
             <div class="header-container">
-                <img class="logo" src='/dist/assets/images/logo.svg'/> 
+                <img class="logo" src='./dist/assets/images/logo.svg'/> 
 
                 <div class="right">
                     <div class="font-text">${this.fontType}</div>
-                    <img @click="${this.toggleDropdown}" class="arrow" src='/dist/assets/images/icon-arrow-down.svg'/>  
+                    <img @click="${this.toggleDropdown}" class="arrow" src='./dist/assets/images/icon-arrow-down.svg'/>  
                     <div class="separator"></div>
                     <div class="toggle-switch-container">
                         <toggle-switch-element></toggle-switch-element>
-                        <img class="moon" src='/dist/assets/images/icon-moon.svg'/>  
+                        <img class="moon" src='./dist/assets/images/icon-moon.svg'/>  
                     </div>
                     ${this.isDropdownVisible?H`<font-dropdown-element @font-selected="${this.handleFontSelected}"></font-dropdown-element>`:""}
                 </div>
