@@ -465,7 +465,7 @@ const ct=2;class lt{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,s)
              type="text"
             >
             ${this.isEmptySearchTerm?H`<div class="error-message" aria-live="assertive">Whoops, can't be empty</div>`:""}
-            <img @click=${this._handleClick} src='/dist/assets/images/icon-search.svg'/>
+            <img @click=${this._handleClick} src='./dist/assets/images/icon-search.svg'/>
         `}}window.customElements.define("searchbar-component",Et);var Tt=r`
     .error-container {
             width:100%;
