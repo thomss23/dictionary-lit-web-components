@@ -2,6 +2,8 @@ import {LitElement, html} from 'lit';
 import {repeat} from 'lit/directives/repeat.js';
 
 import '../definition-element/definition-element'
+import '../loading-element/loading-element'
+
 import contentStyles from './content-element-light-styles'
 
 export class Content extends LitElement {
@@ -11,7 +13,8 @@ export class Content extends LitElement {
     ]
 
     static properties = {
-        data: {type: Object}
+        data: {type: Object},
+        isLoading : {type: Boolean}
     };
 
 
@@ -59,6 +62,12 @@ export class Content extends LitElement {
     }
 
     render() {
+
+        if (this.isLoading) {
+            return html`<loading-element></loading-element>`
+        }
+
+
         const dataWithMostMeanings = this._retrieveResultWithMostMeaningsFromData(this.data);
         const allPhonetics = this.data.flatMap(element => element.phonetics);
         const audioData = allPhonetics.find(phonetic => phonetic.audio !== '');        

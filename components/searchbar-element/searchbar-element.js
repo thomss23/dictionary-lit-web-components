@@ -9,7 +9,6 @@ import {darkStyles} from './searchbar-element-dark-styles'
 
 export class SearchBar extends LitElement {
 
-
     get styles() {
         return css`
             ${commonStyles}
@@ -78,7 +77,6 @@ export class SearchBar extends LitElement {
             <img @click=${this._handleClick} src='./dist/assets/images/icon-search.svg'/>
         `
     }
-
 }
 
 window.customElements.define('searchbar-component', SearchBar);
