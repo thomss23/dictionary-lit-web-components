@@ -7,8 +7,8 @@
   "module": "app-container.js",
   "type": "module",
   "scripts": {
-    "build": "echo \"This is not a TypeScript project, so no need to build.\"",
-    "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "lint:eslint": "eslint '**/*.js'",
     "lint:lit-analyzer": "lit-analyzer my-element.js",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",

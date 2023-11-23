@@ -54,7 +54,7 @@ export class Header extends LitElement {
                     <div class="separator"></div>
                     <div class="toggle-switch-container">
                         <toggle-switch-element></toggle-switch-element>
-                        <img class="moon" src='/dictionary-lit-web-components/dist/assets/images/icon-moon.svg'/>  
+                        <img class="moon" src='/dist/assets/images/icon-moon.svg'/>  
                     </div>
                     ${this.isDropdownVisible ? html`<font-dropdown-element @font-selected="${this.handleFontSelected}"></font-dropdown-element>` : ''}
                 </div>
