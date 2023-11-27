@@ -8,6 +8,7 @@ This is a solution to the [Dictionary web app challenge on Frontend Mentor](http
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
+  - [How to run](#how-to-run)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -40,6 +41,14 @@ Dark Mode version:
 
 - Solution URL: [https://www.frontendmentor.io/solutions/dictionary-web-app-MSI4v4i_z8](https://www.frontendmentor.io/solutions/dictionary-web-app-MSI4v4i_z8)
 - Live Site URL: [https://thomss23.github.io/dictionary-lit-web-components/](https://thomss23.github.io/dictionary-lit-web-components/)
+
+### How to run
+```cd``` into ```dictionary-lit-web-components``` and run
+```
+npm i
+npm run serve
+```
+The app should load on ```localhost:8000```
 
 ## My process
 
